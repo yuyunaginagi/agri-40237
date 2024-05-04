@@ -75,8 +75,8 @@ URL
 
 ローカルでの動作方法
 --------------------------------------------------------------
-% git clone https://github.com/yuyunaginagi/original-40237.git  
-% cd original-40237  
+% git clone https://github.com/yuyunaginagi/agri-40237.git  
+% cd agri-40237  
 % bundle install  
 % yarn install  
 % rails db:create  
@@ -86,10 +86,10 @@ URL
 
 工夫したポイント
 --------------------------------------------------------------
-1.見やすさを意識し、ログイン後は登録されたユーザー名のみが表示されるようにした。ユーザー名をクリックすると各ユーザーの詳細ページに遷移するようにした。  
-2.投稿に対して、誤った削除が起こらないよう、削除ボタンを押した際は、確認ダイアログが表示されるようにした。  
-3.誰が最近投稿したかわかるように、12時間以内の投稿があれば、ユーザー一覧ページに「NEW!」と表示されるようにした。  
-4.ユーザーのほとんどが学生であるため、スマホでの見やすさにこだわった。PC用とスマホ用でビューを変化させた。
+1.  
+2.  
+3.  
+4.
 
 
 usersテーブル
@@ -114,7 +114,7 @@ subjectsテーブル
 |--------------|------------|-------------|
 | user         | references | null: false, foreign_key: true |
 | subject_name | string     | null: false |
-| image        | ima ge     | null: false |
+| image        | image      | null: false |
 
 ### Association
 - has_many :subject_users
