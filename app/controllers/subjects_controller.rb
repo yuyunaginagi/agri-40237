@@ -13,6 +13,10 @@ class SubjectsController < ApplicationController
     end
   end
 
+  def show
+    
+  end
+
   private
 
   def subject_params

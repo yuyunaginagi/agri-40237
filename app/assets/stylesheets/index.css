@@ -1,0 +1,19 @@
+/* Main Content */
+.contents {
+  max-width: 960px;
+  margin: 20px auto;
+  padding: 0 20px;
+}
+
+/* Subject */
+.subject-image {
+  width: 300px;
+  height: auto; /* 画像の縦横比を保持 */
+  margin: 0 auto; /* 画像を中央に配置 */
+}
+
+/* Subject Name */
+.subject-name {
+  text-align: center; /* テキストを中央に配置 */
+  margin-top: 10px; /* 上部に余白を追加 */
+}

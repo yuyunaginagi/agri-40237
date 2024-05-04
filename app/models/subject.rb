@@ -5,4 +5,7 @@ class Subject < ApplicationRecord
   has_many :tests
   has_many :questions
   has_one_attached :image
+
+  validates :subject_name, presence: true
+  validates :image, presence: true
 end
