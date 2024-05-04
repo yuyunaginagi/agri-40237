@@ -14,7 +14,6 @@ class SubjectsController < ApplicationController
   end
 
   def show
-    
   end
 
   private
