@@ -7,7 +7,7 @@ class SubjectsController < ApplicationController
     @subject = Subject.new(subject_params)
     # @subject.user = current_user
     if @subject.save
-      redirect_to user_path(current_user)
+      redirect_to root_path
     else
       render :new, status: :unprocessable_entity
     end

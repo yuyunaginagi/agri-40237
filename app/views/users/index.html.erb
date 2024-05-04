@@ -1,10 +1,9 @@
 <div class="contents row">
   <% @subjects.each do |subject| %>
-    <%= image_tag subject.image, class: 'message-image' if subject.image.attached? %>
-      <p><%= subject.subject_name %></p>
-      <span class="name">
-        <%= user.nickname %>
-      </span>
-    </div>
+    <%= image_tag subject.image, class: 'subject-image' if subject.image.attached? %>
+    <p><%= subject.subject_name %></p>
+    <span class="name">
+      <%= subject.user.nickname %>
+    </span>
   <% end %>
 </div>
