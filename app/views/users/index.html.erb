@@ -1,1 +1,10 @@
-ABC
+<% if user_signed_in? %>
+  <div class="contents row">
+    <% @subjects.each do |subject| %>
+      <%= link_to subject_path(subject) do %>
+        <%= image_tag subject.image.variant(resize: '300x300'), class: 'subject-image' if subject.image.attached? %>
+      <% end %>
+      <p><%= subject.subject_name %></p>
+    <% end %>
+  </div>
+<% end %>
