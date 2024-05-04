@@ -29,12 +29,15 @@ URL
 
 ### 考査問題投稿
 1.考査問題投稿ボタンをクリックして、考査問題を投稿する。  
-2.
+
+### 質問投稿
+1.投稿された教材および考査問題に関わる質問とその回答ができる。
 
 アプリケーションを作成した背景
 --------------------------------------------------------------
-陸上競技において、競技結果（記録）の管理は、チームおよび個人において重要である。また、各種試合の申し込みにも必要な情報である。試合の記録をその都度残しておかないと、自己ベストの記録を調べることが大変であり、記録の仕方は統一されていないという課題がある。
-さらに、競技に取り組む上で、試合や練習の振り返りが重要である。指導者が選手とやり取りするツールも必要であると考え、アプリケーション開発に至った。
+教員は各々が用意した教材を用いて授業を進めているが、他の教員の授業や実習の教材というのは共有されにくいという現状がある。  
+考査問題などにおいても１から作ると大変な作業である。また、農業といった教科は専門分野になるため、世の中に存在する資料が限られている。  
+このことから、教員が作成した教材データのアップロードができ、他の教員が閲覧およびダウンロードできるツールが必要であると考え、アプリケーション開発に至った。  
 
 洗い出した要件
 --------------------------------------------------------------
@@ -91,69 +94,82 @@ URL
 
 usersテーブル
 --------------------------------------------------------------
-| Column              | Type    | Options     |
-|---------------------|---------|-------------|
-| nickname            | string  | null: false |
-| email               | string  | null: false, unique: true |
-| encrypted_password  | string  | null: false |
-| birth_day           | date    | null: false |
-| event               | string  | null: false |
-| goal                | string  | null: false |
+| Column             | Type    | Options     |
+|--------------------|---------|-------------|
+| nickname           | string  | null: false |
+| email              | string  | null: false, unique: true |
+| encrypted_password | string  | null: false |
 
 
 ### Association
-- has_many :results
-- has_many :reviews
-- has_many :comments
-- has_many :likes
+- has_many :subject_users
+- has_many :subjects, through: :subject_users
+- has_many :teaching_materials
+- has_many :tests
+- has_many :questions
 
-resultsテーブル
+subjectsテーブル
 -------------------------------------------------------------
-| Column                 | Type       | Options     |
-|------------------------|------------|-------------|
-| user                   | references | null: false, foreign_key: true |
-| date                   | date       | null: false |
-| game_name              | string     | null: false |
-| event_id               | integer    | null: false |
-| result                 | text       | null: false |
+| Column       | Type       | Options     |
+|--------------|------------|-------------|
+| user         | references | null: false, foreign_key: true |
+| subject_name | string     | null: false |
+| image        | ima ge     | null: false |
 
 ### Association
-- belongs_to :user
+- has_many :subject_users
+- has_many :users, through: :subject_users
+- has_many :teaching_materials
+- has_many :tests
+- has_many :questions
+- has_one _attached :image
 
-reviewsテーブル
+subject_usersテーブル
 -------------------------------------------------------------
-| Column           | Type       | Options                        |
-|------------------|------------|--------------------------------|
-| user             | references | null: false, foreign_key: true |
-| date             | date       | null: false                    |
-| activity         | string     | null: false                    |
-| review           | text       | null: false                    |
+| Column  | Type       | Options                        |
+|---------|------------|--------------------------------|
+| user    | references | null: false, foreign_key: true |
+| subject | references | null: false, foreign_key: true |
 
 ### Association
 - belongs_to :user
-- has_many :comments
-- has_many :likes
+- belongs_to :subject
 
-commentsテーブル
+teaching_materialsテーブル
 -------------------------------------------------------------
-| Column           | Type       | Options                        |
-|------------------|------------|--------------------------------|
-| text             | text       | null: false                    |
-| user             | references | null: false, foreign_key: true |
-| review           | references | null: false, foreign_key: true |
+| Column  | Type       | Options                        |
+|---------|------------|--------------------------------|
+| user    | references | null: false, foreign_key: true |
+| subject | references | null: false, foreign_key: true |
+| title   | text       | null: false                    |
+| file    | string     | null: false                    |
 
 ### Association
 - belongs_to :user
-- belongs_to :review
+- belongs_to :subject
 
-likesテーブル
---------------------------------------------------------------
-| Column           | Type       | Options                        |
-|------------------|------------|--------------------------------|
-| like             | string     | null: false                    |
-| user             | references | null: false, foreign_key: true |
-| review           | references | null: false, foreign_key: true |
+testsテーブル
+-------------------------------------------------------------
+| Column  | Type       | Options                        |
+|---------|------------|--------------------------------|
+| user    | references | null: false, foreign_key: true |
+| subject | references | null: false, foreign_key: true |
+| title   | text       | null: false                    |
+| file    | string     | null: false                    |
 
 ### Association
 - belongs_to :user
-- belongs_to :review
+- belongs_to :subject
+
+questionsテーブル
+-------------------------------------------------------------
+| Column   | Type       | Options                        |
+|----------|------------|--------------------------------|
+| user     | references | null: false, foreign_key: true |
+| subject  | references | null: false, foreign_key: true |
+| title    | text       | null: false                    |
+| question | text       | null: false                    |
+
+### Association
+- belongs_to :user
+- belongs_to :subject
