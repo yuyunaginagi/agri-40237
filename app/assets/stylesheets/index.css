@@ -3,11 +3,22 @@
   max-width: 960px;
   margin: 20px auto;
   padding: 0 20px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.row {
+  display: flex;
+}
+
+.col {
+  flex: 1;
+  margin: 10px;
 }
 
 /* Subject */
 .subject-image {
-  width: 300px;
+  width: 250px;
   height: auto; /* 画像の縦横比を保持 */
   margin: 0 auto; /* 画像を中央に配置 */
 }
@@ -15,5 +26,12 @@
 /* Subject Name */
 .subject-name {
   text-align: center; /* テキストを中央に配置 */
-  margin-top: 10px; /* 上部に余白を追加 */
+  margin: 0  40px 30px 0; /* 上部に余白を追加 */
+  border: 1px solid #ccc; /* 枠線のスタイルと色を指定 */
+  padding: 10px; /* 文字と枠の間にスペースを追加 */
+  font-family: Arial, sans-serif; /* 書体を指定 */
+  font-size: 16px; /* 文字サイズを指定 */
+  width: 250px;
+  background-color: greenyellow;
 }
+
