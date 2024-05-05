@@ -1,10 +1,18 @@
 <% if user_signed_in? %>
   <div class="contents row">
-    <% @subjects.each do |subject| %>
-      <%= link_to subject_path(subject) do %>
-        <%= image_tag subject.image.variant(resize: '300x300'), class: 'subject-image' if subject.image.attached? %>
-      <% end %>
-      <p><%= subject.subject_name %></p>
+    <% @subjects.each_slice(3) do |row| %>
+      <div class="row">
+        <% row.each do |subject| %>
+          <div class="col">
+            <%= image_tag subject.image.variant(resize: '300x300'), class: 'subject-image' if subject.image.attached? %>
+            <%= link_to subject_path(subject) do %>
+              <div class="subject-name">
+                <p><%= subject.subject_name %></p>
+              </div>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
     <% end %>
   </div>
 <% end %>
