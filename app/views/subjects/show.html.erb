@@ -1,4 +1,7 @@
-<div class="user_nav grid-6">
-  <%= link_to "教材投稿", "#", class: "post" %>
-  <%= link_to "考査問題投稿", "#", class: "post" %>
-  </div>
+<div class="subject-info">
+  <p>投稿者：<%= @user.nickname %></p>
+</div>
+<div class="posting">
+  <%= link_to "教材投稿", "#", class: "posti" %>
+  <%= link_to "考査問題投稿", "#", class: "posti" %>
+</div>
