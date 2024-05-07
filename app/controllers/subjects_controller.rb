@@ -17,6 +17,7 @@ class SubjectsController < ApplicationController
   def show
     @subject = Subject.find(params[:id])
     @user = User.find(@subject.user_id)
+    @teaching_materials = @subject.teaching_materials
   end
 
   private

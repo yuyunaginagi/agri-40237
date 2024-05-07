@@ -1,0 +1,10 @@
+<div class="contents-new">
+  <div class="container">
+    <h3>教材投稿</h3>
+    <%= form_with(model: [@subject, @teaching_material], local: true) do |f| %>
+      <%= f.text_field :title, placeholder: "タイトル" %>
+      <%= f.file_field :file %>
+      <%= f.submit "投稿" %>
+    <% end %>
+  </div>
+</div>
