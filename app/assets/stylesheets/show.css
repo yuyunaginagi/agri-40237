@@ -3,16 +3,21 @@
   margin: 20px auto;
   padding: 0 20px;
   display: flex;
-  flex-wrap: wrap;
+}
+
+.poston {
+  width: 400px;
+  margin: 0 10px 10px 35px;
+  padding: 5px 10px;
+  border: 1px solid #333;
 }
 
 .posti {
+  height: 30px;
+  line-height: 30px;
   display: block;
-  width: 400px;
   text-align: center;
   font-weight: bold;
-  margin: 0 10px 10px 35px;
-  padding: 5px 10px;
   background-color: #f0f0f0;
   text-decoration: none;
   color: #333;
@@ -20,6 +25,12 @@
 
 .posti:hover {
   background-color: #e0e0e0;
+}
+
+.teaching_material_title{
+  display: block;
+  margin: 5px;
+  text-decoration: none;
 }
 
 /* Subject Info */
