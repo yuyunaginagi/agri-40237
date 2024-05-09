@@ -7,7 +7,7 @@
     <%= link_to "教材投稿", new_subject_teaching_material_path(@subject), class: "posti" %>
     <div class="teaching_material_title">
       <% @teaching_materials.each_with_index do |teaching_material, index| %>
-        <%= "#{index + 1}. " %><%= link_to teaching_material.title, "#" %><br>
+        <%= "#{index + 1}. " %><%= link_to teaching_material.title, rails_blob_url(teaching_material.file.blob), target: "_blank" %><br>
       <% end %>
     </div>
   </div>

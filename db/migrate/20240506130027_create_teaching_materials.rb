@@ -4,7 +4,6 @@ class CreateTeachingMaterials < ActiveRecord::Migration[7.0]
       t.references :user        , null: false, foreign_key: true
       t.references :subject     , null: false, foreign_key: true
       t.string     :title       , null: false
-      t.binary     :file        , null: false
       t.timestamps
     end
   end
