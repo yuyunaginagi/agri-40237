@@ -1,4 +1,6 @@
 class SubjectsController < ApplicationController
+  before_action :authenticate_user!, only: [:new, :create, :show]
+
   def new
     @subject = Subject.new
   end
@@ -24,6 +26,11 @@ class SubjectsController < ApplicationController
 
   def subject_params
     params.require(:subject).permit(:subject_name, :image).merge(user_ids: current_user.id)
+  end
+
+  def authenticate_user!
+    # ユーザーがログインしていない場合はリダイレクト
+    redirect_to new_user_session_path unless current_user
   end
 
 end
