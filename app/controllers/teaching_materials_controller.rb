@@ -1,4 +1,6 @@
 class TeachingMaterialsController < ApplicationController
+  before_action :authenticate_user!, only: [:new, :create]
+
   def new
     @subject = Subject.find(params[:subject_id])
     @teaching_material = TeachingMaterial.new
@@ -24,4 +26,10 @@ class TeachingMaterialsController < ApplicationController
   def teaching_material_params
     params.require(:teaching_material).permit(:title, :file).merge(user_id: current_user.id, subject_id: params[:subject_id])
   end
+
+  def authenticate_user!
+    # ユーザーがログインしていない場合はリダイレクト
+    redirect_to new_user_session_path unless current_user
+  end
+
 end
