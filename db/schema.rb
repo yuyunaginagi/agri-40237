@@ -60,7 +60,6 @@ ActiveRecord::Schema[7.0].define(version: 2024_05_06_130027) do
     t.bigint "user_id", null: false
     t.bigint "subject_id", null: false
     t.string "title", null: false
-    t.binary "file", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["subject_id"], name: "index_teaching_materials_on_subject_id"

@@ -8,14 +8,14 @@ class TeachingMaterialsController < ApplicationController
     @teaching_material = TeachingMaterial.new(teaching_material_params)
     @teaching_material.user_id = current_user.id
     if @teaching_material.save
-      redirect_to root_path
+      redirect_to subject_path(@teaching_material.subject)
     else
       render :new, status: :unprocessable_entity
     end
   end
 
   def show
-    @subject = Subject.find(params[:id])
+    @subject = Subject.find(params[:subject_id])
     @teaching_materials = @subject.teaching_materials
   end
 
