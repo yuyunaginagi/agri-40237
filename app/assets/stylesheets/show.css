@@ -33,6 +33,14 @@
   text-decoration: none;
 }
 
+.edit-button{
+  border: solid 1px;
+  border-radius: 1px;
+  text-decoration: none;
+  color: black;
+  background-color: skyblue;
+}
+
 .delete-button{
   border: solid 1px;
   border-radius: 1px;
