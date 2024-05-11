@@ -20,6 +20,7 @@ class SubjectsController < ApplicationController
     @subject = Subject.find(params[:id])
     @user = User.find(@subject.user_id)
     @teaching_materials = @subject.teaching_materials
+    @exams = @subject.exams
   end
 
   private

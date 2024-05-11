@@ -4,5 +4,6 @@ Rails.application.routes.draw do
   resources :users,    only: [:index]
   resources :subjects, only: [:index, :new, :create, :show, :edit, :update] do
     resources :teaching_materials, only: [:new, :create, :destroy, :edit, :update]
+    resources :exams, only: [:new, :create, :destroy, :edit, :update]
   end
 end

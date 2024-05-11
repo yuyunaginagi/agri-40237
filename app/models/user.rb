@@ -6,6 +6,6 @@ class User < ApplicationRecord
   has_many :subject_users
   has_many :subjects, through: :subject_users
   has_many :teaching_materials
-  has_many :tests
+  has_many :exams
   has_many :questions
 end
