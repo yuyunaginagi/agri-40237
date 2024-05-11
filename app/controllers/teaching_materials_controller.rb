@@ -32,6 +32,15 @@ class TeachingMaterialsController < ApplicationController
     @teaching_material = TeachingMaterial.find(params[:id])
   end
 
+  def update
+    @teaching_material = TeachingMaterial.find(params[:id])
+    if @teaching_material.update(teaching_material_params)
+      redirect_to subject_path(@teaching_material.subject)
+    else
+      render :edit, status: :unprocessable_entity
+    end
+  end
+
   private
 
   def teaching_material_params
