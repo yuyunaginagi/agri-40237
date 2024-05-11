@@ -3,6 +3,6 @@ Rails.application.routes.draw do
   root to: 'users#index'
   resources :users,    only: [:index]
   resources :subjects, only: [:index, :new, :create, :show, :edit, :update] do
-    resources :teaching_materials, only: [:new, :create, :show, :destroy]
+    resources :teaching_materials, only: [:new, :create, :destroy, :edit, :update]
   end
 end

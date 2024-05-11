@@ -27,6 +27,24 @@ class TeachingMaterialsController < ApplicationController
     redirect_to subject_path(@teaching_material.subject)
   end
 
+  def edit
+    @subject = Subject.find(params[:subject_id])
+    @teaching_material = TeachingMaterial.find(params[:id])
+
+    unless @teaching_material.user_id == current_user.id
+      redirect_to root_path
+    end
+  end
+
+  def update
+    @teaching_material = TeachingMaterial.find(params[:id])
+    if @teaching_material.update(teaching_material_params)
+      redirect_to subject_path(@teaching_material.subject)
+    else
+      render :edit, status: :unprocessable_entity
+    end
+  end
+
   private
 
   def teaching_material_params
