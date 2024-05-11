@@ -30,6 +30,10 @@ class TeachingMaterialsController < ApplicationController
   def edit
     @subject = Subject.find(params[:subject_id])
     @teaching_material = TeachingMaterial.find(params[:id])
+
+    unless @teaching_material.user_id == current_user.id
+      redirect_to root_path
+    end
   end
 
   def update
