@@ -142,7 +142,7 @@ teaching_materialsテーブル
 | user    | references | null: false, foreign_key: true |
 | subject | references | null: false, foreign_key: true |
 | title   | text       | null: false                    |
-| file    | string     | null: false                    |
+| files   | string     | null: false                    |
 
 ### Association
 - belongs_to :user

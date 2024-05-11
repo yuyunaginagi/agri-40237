@@ -33,6 +33,14 @@
   text-decoration: none;
 }
 
+.delete-button{
+  border: solid 1px;
+  border-radius: 1px;
+  text-decoration: none;
+  color: black;
+  background-color: whitesmoke;
+}
+
 /* Subject Info */
 .subject-info {
   max-width: 910px;

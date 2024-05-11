@@ -38,3 +38,7 @@
 .container form input[type="submit"]:hover {
   background-color: #0056b3;
 }
+
+.pdf{
+  font-size: 12px;
+}

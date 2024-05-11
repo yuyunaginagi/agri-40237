@@ -7,7 +7,12 @@
     <%= link_to "教材投稿", new_subject_teaching_material_path(@subject), class: "posti" %>
     <div class="teaching_material_title">
       <% @teaching_materials.each_with_index do |teaching_material, index| %>
-        <%= "#{index + 1}. " %><%= link_to teaching_material.title, rails_blob_url(teaching_material.file.blob), target: "_blank" %><br>
+        <%= "#{index + 1}. " %>
+        <%= link_to teaching_material.title, rails_blob_url(teaching_material.files.first), target: "_blank" %>
+        <% if teaching_material.files.second %>
+          <%= link_to "(PDF)", rails_blob_url(teaching_material.files.second), target: "_blank" %>
+        <% end %>
+        <%= button_to "削除", subject_teaching_material_path(@subject, teaching_material), method: :delete, class: "delete-button" %><br>
       <% end %>
     </div>
   </div>
