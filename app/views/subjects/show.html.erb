@@ -3,6 +3,7 @@
 </div>
 
 <div class="posting">
+
   <div class="poston">
     <%= link_to "教材投稿", new_subject_teaching_material_path(@subject), class: "posti" %>
     <div class="teaching_material_title">
@@ -19,7 +20,22 @@
       <% end %>
     </div>
   </div>
+
   <div class="poston">
-    <%= link_to "考査問題投稿", "#", class: "posti" %>
+    <%= link_to "問題投稿", new_subject_exam_path(@subject), class: "posti" %>
+    <div class="teaching_material_title">
+      <% @exams.each_with_index do |exam, index| %>
+        <%= "#{index + 1}. " %>
+        <%= link_to exam.title, rails_blob_url(exam.files.first), target: "_blank" %>
+        <% if exam.files.second %>
+          <%= link_to "(PDF)", rails_blob_url(exam.files.second), target: "_blank" %>
+        <% end %>
+        <% if exam.user_id == current_user.id %>
+          <%= link_to "編集", edit_subject_exam_path(@subject, exam), class: "edit-button" %>
+          <%= link_to "削除", subject_exam_path(@subject, exam), data: { turbo_method: :delete }, class: "delete-button", 'data-confirm': '本当に削除していいですか？' %>
+        <% end %>
+      <% end %>
+    </div>
   </div>
+
 </div>

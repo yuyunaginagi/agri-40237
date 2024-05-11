@@ -4,7 +4,7 @@ AGRI MASTER
 
 アプリケーション概要
 --------------------------------------------------------------
-高校で農業を指導する教員が、教材および考査問題を投稿し、共有することができる。
+高校で農業を指導する教員が、教材および問題を投稿し、共有することができる。
 
 URL
 --------------------------------------------------------------
@@ -27,11 +27,11 @@ URL
 ### 教材投稿
 1.教材投稿ボタンをクリックして、教材を投稿する。
 
-### 考査問題投稿
-1.考査問題投稿ボタンをクリックして、考査問題を投稿する。  
+### 問題投稿
+1.問題投稿ボタンをクリックして、問題を投稿する。  
 
 ### 質問投稿
-1.投稿された教材および考査問題に関わる質問とその回答ができる。
+1.投稿された教材および問題に関わる質問とその回答ができる。
 
 アプリケーションを作成した背景
 --------------------------------------------------------------
@@ -105,7 +105,7 @@ usersテーブル
 - has_many :subject_users
 - has_many :subjects, through: :subject_users
 - has_many :teaching_materials
-- has_many :tests
+- has_many :exams
 - has_many :questions
 
 subjectsテーブル
@@ -120,7 +120,7 @@ subjectsテーブル
 - has_many :subject_users
 - has_many :users, through: :subject_users
 - has_many :teaching_materials
-- has_many :tests
+- has_many :exams
 - has_many :questions
 - has_one _attached :image
 
@@ -148,7 +148,7 @@ teaching_materialsテーブル
 - belongs_to :user
 - belongs_to :subject
 
-testsテーブル
+examsテーブル
 -------------------------------------------------------------
 | Column  | Type       | Options                        |
 |---------|------------|--------------------------------|

@@ -1,7 +1,7 @@
 <div class="contents-new">
   <div class="container">
-    <h3>編集する(教材)</h3>
-    <%= form_with(model: [@subject, @teaching_material], local: true) do |f| %>
+    <h3>問題投稿</h3>
+    <%= form_with(model: [@subject, @exam], local: true) do |f| %>
       <%= f.text_field :title, placeholder: "タイトル" %>
       <%= f.file_field :files, multiple: true %>
       ※2つ目にPDFデータを選択してください
