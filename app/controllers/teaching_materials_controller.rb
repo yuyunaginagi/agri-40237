@@ -21,10 +21,16 @@ class TeachingMaterialsController < ApplicationController
     @teaching_materials = @subject.teaching_materials
   end
 
+  def destroy
+    @teaching_material = TeachingMaterial.find(params[:id])
+    @teaching_material.destroy
+    redirect_to subject_path(@teaching_material.subject)
+  end
+
   private
 
   def teaching_material_params
-    params.require(:teaching_material).permit(:title, :file).merge(user_id: current_user.id, subject_id: params[:subject_id])
+    params.require(:teaching_material).permit(:title, files: []).merge(user_id: current_user.id, subject_id: params[:subject_id])
   end
 
   def authenticate_user!

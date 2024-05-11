@@ -1,8 +1,8 @@
 class TeachingMaterial < ApplicationRecord
   belongs_to :user
   belongs_to :subject
-  has_one_attached :file
+  has_many_attached :files
   
   validates :title, presence: true
-  validates :file, presence: true
+  validates :files, presence: true
 end
