@@ -12,7 +12,8 @@
         <% if teaching_material.files.second %>
           <%= link_to "(PDF)", rails_blob_url(teaching_material.files.second), target: "_blank" %>
         <% end %>
-        <%= button_to "削除", subject_teaching_material_path(@subject, teaching_material), method: :delete, class: "delete-button" %><br>
+        <%= link_to "編集", edit_subject_teaching_material_path(@subject, teaching_material), class: "edit-button" %>
+        <%= button_to "削除", subject_teaching_material_path(@subject, teaching_material), method: :delete, class: "delete-button" %>
       <% end %>
     </div>
   </div>

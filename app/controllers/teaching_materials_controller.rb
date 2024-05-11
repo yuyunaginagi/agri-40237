@@ -27,6 +27,11 @@ class TeachingMaterialsController < ApplicationController
     redirect_to subject_path(@teaching_material.subject)
   end
 
+  def edit
+    @subject = Subject.find(params[:subject_id])
+    @teaching_material = TeachingMaterial.find(params[:id])
+  end
+
   private
 
   def teaching_material_params
