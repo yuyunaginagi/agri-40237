@@ -1,9 +1,14 @@
 class TeachingMaterialsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create]
+  before_action :set_subject
 
   def new
     @subject = Subject.find(params[:subject_id])
     @teaching_material = TeachingMaterial.new
+
+    unless @subject.user_id == current_user.id
+      redirect_to root_path
+    end
   end
 
   def create
@@ -54,6 +59,10 @@ class TeachingMaterialsController < ApplicationController
   def authenticate_user!
     # ユーザーがログインしていない場合はリダイレクト
     redirect_to new_user_session_path unless current_user
+  end
+
+  def set_subject
+    @subject = Subject.find(params[:subject_id])
   end
 
 end

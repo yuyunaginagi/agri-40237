@@ -4,6 +4,9 @@ class ExamsController < ApplicationController
   def new
     @subject = Subject.find(params[:subject_id])
     @exam = Exam.new
+    unless @subject.user_id == current_user.id
+      redirect_to root_path
+    end
   end
 
   def create

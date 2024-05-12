@@ -5,7 +5,9 @@
 <div class="posting">
 
   <div class="poston">
-    <%= link_to "教材投稿", new_subject_teaching_material_path(@subject), class: "posti" %>
+    <% if current_user.id == @subject.user_id %>
+      <%= link_to "教材投稿", new_subject_teaching_material_path(@subject), class: "posti" %>
+    <% end %>
     <div class="teaching_material_title">
       <% @teaching_materials.each_with_index do |teaching_material, index| %>
         <%= "#{index + 1}. " %>
@@ -22,7 +24,9 @@
   </div>
 
   <div class="poston">
-    <%= link_to "問題投稿", new_subject_exam_path(@subject), class: "posti" %>
+    <% if current_user.id == @subject.user_id %>
+      <%= link_to "問題投稿", new_subject_exam_path(@subject), class: "posti" %>
+    <% end %>
     <div class="teaching_material_title">
       <% @exams.each_with_index do |exam, index| %>
         <%= "#{index + 1}. " %>
