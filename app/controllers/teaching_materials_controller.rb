@@ -5,6 +5,10 @@ class TeachingMaterialsController < ApplicationController
   def new
     @subject = Subject.find(params[:subject_id])
     @teaching_material = TeachingMaterial.new
+
+    unless @subject.user_id == current_user.id
+      redirect_to root_path
+    end
   end
 
   def create
