@@ -26,12 +26,23 @@
 /* Subject Name */
 .subject-name {
   text-align: center; /* テキストを中央に配置 */
-  margin: 0  40px 30px 0; /* 上部に余白を追加 */
+  margin-right: 40px; /* 上部に余白を追加 */
   border: 1px solid #ccc; /* 枠線のスタイルと色を指定 */
   padding: 10px; /* 文字と枠の間にスペースを追加 */
   font-family: Arial, sans-serif; /* 書体を指定 */
   font-size: 16px; /* 文字サイズを指定 */
   width: 250px;
   background-color: greenyellow;
+}
+
+.delete-button2 {
+  border: solid 1px;
+  border-radius: 1px;
+  text-decoration: none;
+  color: black;
+  background-color: whitesmoke;
+  display: block;
+  width: 250px;
+  text-align: center;
 }
 
