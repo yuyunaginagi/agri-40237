@@ -167,7 +167,6 @@ questionsテーブル
 |----------|------------|--------------------------------|
 | user     | references | null: false, foreign_key: true |
 | subject  | references | null: false, foreign_key: true |
-| title    | string     | null: false                    |
 | question | text       | null: false                    |
 
 ### Association

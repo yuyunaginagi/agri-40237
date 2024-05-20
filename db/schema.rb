@@ -52,7 +52,6 @@ ActiveRecord::Schema[7.0].define(version: 2024_05_18_013941) do
   create_table "questions", charset: "utf8", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "subject_id", null: false
-    t.string "title", null: false
     t.text "question", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
