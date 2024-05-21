@@ -58,3 +58,12 @@
 .subject-info p {
   font-style: italic;
 }
+
+.question_form{
+  padding: 5px;
+  width: 350px;
+}
+
+.questions{
+  margin-left: 230px;
+}
