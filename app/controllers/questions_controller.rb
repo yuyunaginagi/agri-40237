@@ -3,11 +3,8 @@ class QuestionsController < ApplicationController
   def create
     @question = Question.new(question_params)
     @question.user = current_user
-    if @question.save
-      redirect_to user_path(current_user)
-    else
-      render :new, status: :unprocessable_entity
-    end
+    @question.save
+    redirect_to subject_path(@question.subject_id)
   end
 
   def destroy
@@ -21,6 +18,6 @@ class QuestionsController < ApplicationController
   private
 
   def question_params
-    params.require(:question).permit(:text).merge(user_id: current_user.id, subject_id: params[:subject_id])
+    params.require(:question).permit(:question).merge(user_id: current_user.id, subject_id: params[:subject_id])
   end
 end

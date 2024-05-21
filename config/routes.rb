@@ -5,6 +5,6 @@ Rails.application.routes.draw do
   resources :subjects, only: [:index, :new, :create, :show, :destroy] do
     resources :teaching_materials, only: [:new, :create, :destroy, :edit, :update]
     resources :exams, only: [:new, :create, :destroy, :edit, :update]
-    resources :questions, only: [:new, :create, :destroy]
+    resources :questions, only: [:create, :destroy]
   end
 end
