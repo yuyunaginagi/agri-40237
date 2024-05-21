@@ -45,17 +45,17 @@
 </div>
 
 <%= form_with model: [@subject, @question], id: "question-form" do |f| %>
-  <%= f.text_area :question, placeholder: "質問する", rows: "5", class: "question_form" %>
+  <%= f.text_area :question, placeholder: "質問を入力", rows: "5", class: "question_form" %><br>
   <%= f.submit "質問する", class: "subject_question" %>
 <% end %>
 <div class="questions" id="questions">
-  <h4>＜質問一覧＞</h4>
+  <h4>＜質問一覧＞</h4><br>
   <% @questions.each do |question| %>
     <p class="user-info">
       <%= question.user.nickname %>：<%= question.question %>
       <% if current_user == question.user %>
         <%= link_to '削除', subject_question_path(@subject, question), data: { turbo_method: :delete }, class: 'question-delete-link', 'data-confirm': '本当に削除していいですか？' %>
       <% end %>
-    </p>
+    </p><br>
   <% end %>
 </div>
