@@ -21,6 +21,8 @@ class SubjectsController < ApplicationController
     @user = User.find(@subject.user_id)
     @teaching_materials = @subject.teaching_materials
     @exams = @subject.exams
+    @questions = @subject.questions.includes(:user)
+    @question = @subject.questions.build(user: current_user)
   end
 
   def destroy
