@@ -1,5 +1,5 @@
 document.addEventListener('turbo:load', () => {
-  const classes = ['.delete-button', '.delete-button2'];
+  const classes = ['.delete-button', '.delete-button2', '.question-delete-link'];
   const selector = classes.join(',');
 
   document.querySelectorAll(selector).forEach(link => {
