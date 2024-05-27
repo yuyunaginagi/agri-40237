@@ -1,19 +1,19 @@
-  <div class="contents row">
-    <% @subjects.each_slice(3) do |row| %>
-      <div class="row">
-        <% row.each do |subject| %>
-          <div class="col">
-            <%= image_tag subject.image.variant(resize: '300x300'), class: 'subject-image' if subject.image.attached? %>
-            <%= link_to subject_path(subject) do %>
-              <div class="subject-name">
-                <p><%= subject.subject_name %></p>
-              </div>
-                <% if current_user && subject.user_id == current_user.id %>
-                  <%= link_to "削除", subject_path(subject), data: { turbo_method: :delete }, class: "delete-button2", 'data-confirm': '本当に削除していいですか？(投稿されたデータも全て削除されます)' %>
-                <% end %>
-            <% end %>
-          </div>
-        <% end %>
-      </div>
-    <% end %>
-  </div>
+<div class="contents row">
+  <% @subjects.each_slice(3) do |row| %>
+    <div class="row">
+      <% row.each do |subject| %>
+        <div class="col">
+          <%= image_tag subject.image.variant(resize: '300x300'), class: 'subject-image' if subject.image.attached? %>
+          <%= link_to subject_path(subject) do %>
+            <div class="subject-name">
+              <p><%= subject.subject_name %></p>
+            </div>
+              <% if current_user && subject.user_id == current_user.id %>
+                <%= link_to "削除", subject_path(subject), data: { turbo_method: :delete }, class: "delete-button2", 'data-confirm': '本当に削除していいですか？(投稿されたデータも全て削除されます)' %>
+              <% end %>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+</div>
