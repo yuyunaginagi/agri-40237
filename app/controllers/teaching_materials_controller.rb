@@ -1,4 +1,6 @@
 class TeachingMaterialsController < ApplicationController
+  # 各アクションの実行前に実行される
+  # ログインしていないユーザーをTopページに遷移させる
   before_action :authenticate_user!, only: [:new, :create]
   before_action :set_subject
 
