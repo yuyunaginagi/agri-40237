@@ -1,4 +1,6 @@
 class SubjectsController < ApplicationController
+  # 各アクションの実行前に実行される
+  # ログインしていないユーザーをTopページに遷移させる
   before_action :authenticate_user!, only: [:new, :create, :show]
 
   def new
